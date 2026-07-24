@@ -1,0 +1,139 @@
+---
+---
+<section id="servicios" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Soluciones técnicas para cada etapa de tu negocio.</h2>
+      <p class="section-subtitle">Desarrollamos herramientas robustas orientadas a la optimización de procesos y la conversión.</p>
+    </div>
+
+    <div class="grid services-grid">
+      <div class="service-card" id="service-web">
+        <div class="service-card-header">
+          <h3 class="service-card-title">Sitios Web de Alto Rendimiento</h3>
+        </div>
+        <p class="service-card-desc">Presencia digital rápida, optimizada para buscadores (SEO) y diseñada para la conversión de leads corporativos. Ideal para infraestructura de marca sólida y previsible.</p>
+        <div class="service-meta">
+          <span class="meta-label">MÉTRICA CLAVE</span>
+          <span class="meta-value">Carga en &lt; 1.8s | Core Web Vitals</span>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-saas">
+        <div class="service-card-header">
+          <h3 class="service-card-title">Software a Medida (SaaS)</h3>
+        </div>
+        <p class="service-card-desc">Automatización de procesos operativos, desarrollo de plataformas escalables y migración segura de sistemas legados a infraestructuras modulares en la nube.</p>
+        <div class="service-meta">
+          <span class="meta-label">MÉTRICA CLAVE</span>
+          <span class="meta-value">Arquitectura Modular | Integración API</span>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-support">
+        <div class="service-card-header">
+          <h3 class="service-card-title">Soporte y Mantenimiento</h3>
+        </div>
+        <p class="service-card-desc">Monitoreo activo de servidores, actualizaciones de seguridad constantes, mitigación de riesgos e incidencias y soporte técnico real con canal directo.</p>
+        <div class="service-meta">
+          <span class="meta-label">MÉTRICA CLAVE</span>
+          <span class="meta-value">SLA Garantizado | Sin Intermediarios</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: var(--space-xl) 0;
+    position: relative;
+  }
+
+  .section-badge {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--border-radius);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  /* Decorative line on hover */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: var(--transition);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .service-card:hover::before {
+    width: 100%;
+  }
+
+  .service-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card-title {
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .service-card-desc {
+    font-size: 0.98rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+
+  .service-meta {
+    border-top: 1px solid var(--color-muted-light);
+    padding-top: 1.5rem;
+  }
+
+  .meta-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,243 @@
+---
+---
+<section id="contacto" class="contacto-section">
+  <div class="container">
+    <div class="contacto-grid">
+
+      <div class="contacto-copy">
+        <h2 class="contacto-title">Hablemos de tus operaciones, no de teorías.</h2>
+        <p class="contacto-desc">
+          Agenda una llamada técnica de 20 minutos. Sin presión de ventas; hablarás con quienes van a construir tu sitio o aplicacion para revisar tu proyecto desde el primer dia.
+        </p>
+        <div class="contacto-stats">
+          <div class="stat-item">
+            <span class="stat-num">20</span>
+            <span class="stat-label">minutos de llamada técnica</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">0</span>
+            <span class="stat-label">presión de ventas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">1</span>
+            <span class="stat-label">especialista dedicado a tu proyecto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contacto-form-wrapper">
+        <form class="contacto-form" action="#" method="POST" novalidate>
+          <div class="form-group">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="form-input"
+              placeholder="Tu nombre completo"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Correo corporativo</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="tu@empresa.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="reto" class="form-label">Desafío técnico</label>
+            <textarea
+              id="reto"
+              name="reto"
+              class="form-input form-textarea"
+              rows="4"
+              placeholder="Describe brevemente el problema operativo o proyecto que necesitas resolver."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            Solicitar Evaluación Técnica
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">Elacond <span class="footer-sub">Tech</span></span>
+    <p class="footer-copy">Consultoría y Desarrollo de Software a Medida &copy; {new Date().getFullYear()}</p>
+  </div>
+</footer>
+
+<style>
+  .contacto-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .contacto-title {
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .contacto-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .contacto-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .contacto-form-wrapper {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--border-radius);
+    padding: 2.75rem 2.5rem;
+    box-shadow: var(--box-shadow);
+  }
+
+  .contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .form-input {
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-muted);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    width: 100%;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.65;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(1, 125, 212, 0.1);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .site-footer {
+    background-color: var(--color-text);
+    padding: 2rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    letter-spacing: -0.3px;
+  }
+
+  .footer-sub {
+    font-family: var(--font-body);
+    color: var(--color-accent-light);
+    font-weight: 400;
+  }
+
+  .footer-copy {
+    font-size: 0.82rem;
+    color: rgba(250, 246, 240, 0.45);
+  }
+
+  @media (max-width: 768px) {
+    .contacto-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .contacto-form-wrapper {
+      padding: 2rem 1.5rem;
+    }
+
+    .footer-inner {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>

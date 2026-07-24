@@ -1,0 +1,245 @@
+---
+---
+<section id="proceso" class="workflow-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Un proceso sin cajas negras.</h2>
+      <p class="section-subtitle">Planificamos con plazos reales y visibilidad total para que sepas exactamente qué se está construyendo en cada etapa.</p>
+    </div>
+
+    <div class="timeline-container" id="js-timeline-container">
+      <div class="timeline-line-wrapper">
+        <svg class="timeline-svg-line" viewBox="0 0 10 600" preserveAspectRatio="none">
+          <line x1="5" y1="0" x2="5" y2="600" class="track-line"></line>
+          <line x1="5" y1="0" x2="5" y2="600" class="draw-line" id="js-draw-line"></line>
+        </svg>
+      </div>
+
+      <article class="timeline-step step-1 scroll-reveal">
+        <div class="step-badge">1</div>
+        <div class="step-content">
+          <span class="step-duration">Semanas 1 - 2</span>
+          <h3 class="step-title">Auditoría y Arquitectura Técnica</h3>
+          <p class="step-desc">Analizamos tu infraestructura actual, cuellos de botella y procesos manuales. Definimos las especificaciones técnicas completas antes de escribir la primera línea de código.</p>
+          <div class="step-deliverable">
+            <strong>Entregable clave:</strong> Plan técnico detallado, presupuesto cerrado y mapa de arquitectura de datos.
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-step step-2 scroll-reveal">
+        <div class="step-badge">2</div>
+        <div class="step-content">
+          <span class="step-duration">Semanas 3 - 4</span>
+          <h3 class="step-title">Prototipado y Flujos de Usuario</h3>
+          <p class="step-desc">Diseñamos la interfaz de usuario priorizando la claridad operativa. Estructuramos pantallas funcionales e interactivas para simular la navegación y validar los flujos.</p>
+          <div class="step-deliverable">
+            <strong>Entregable clave:</strong> Wireframes interactivos de alta fidelidad y flujos de usuario validados.
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-step step-3 scroll-reveal">
+        <div class="step-badge">3</div>
+        <div class="step-content">
+          <span class="step-duration">Semanas 5 - 12</span>
+          <h3 class="step-title">Desarrollo en Sprints Ágiles</h3>
+          <p class="step-desc">Programamos la solución en ciclos incrementales (sprints). Contamos con entregas funcionales regulares que puedes probar en tu propio entorno de desarrollo.</p>
+          <div class="step-deliverable">
+            <strong>Entregable clave:</strong> Acceso a un entorno de desarrollo para probar avances quincenalmente.
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-step step-4 scroll-reveal">
+        <div class="step-badge">4</div>
+        <div class="step-content">
+          <span class="step-duration">Semana 13</span>
+          <h3 class="step-title">Integración y Go-Live</h3>
+          <p class="step-desc">Realizamos pruebas rigurosas de carga y seguridad. Migramos las bases de datos de forma segura y desplegamos la plataforma en producción garantizando cero interrupciones operativas.</p>
+          <div class="step-deliverable">
+            <strong>Entregable clave:</strong> Despliegue en producción y migración de datos bajo auditoría de seguridad.
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-step step-5 scroll-reveal">
+        <div class="step-badge">5</div>
+        <div class="step-content">
+          <span class="step-duration">Continuo (MRR)</span>
+          <h3 class="step-title">Soporte Técnico y Optimización</h3>
+          <p class="step-desc">Monitoreamos el rendimiento constantemente. Implementamos mejoras de velocidad, actualizaciones de seguridad indispensables y nos aseguramos de que el software escale con tu negocio.</p>
+          <div class="step-deliverable">
+            <strong>Entregable clave:</strong> Soporte técnico continuo y actualizaciones de infraestructura mensuales.
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .workflow-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+  }
+
+  .section-badge {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    /* Scope timeline for native scroll animation */
+    view-timeline: --timeline-draw-tl block;
+  }
+
+  .timeline-line-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 10px;
+    height: calc(100% - 20px);
+  }
+
+  .timeline-svg-line {
+    width: 100%;
+    height: 100%;
+  }
+
+  .track-line {
+    stroke: var(--color-muted-light);
+    stroke-width: 2px;
+  }
+
+  .draw-line {
+    stroke: var(--color-accent);
+    stroke-width: 3px;
+    stroke-linecap: round;
+  }
+
+  .timeline-step {
+    position: relative;
+    will-change: transform, opacity;
+  }
+
+  .step-badge {
+    position: absolute;
+    left: -5rem;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-muted);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    z-index: 2;
+    transition: var(--transition);
+  }
+
+  .step-content {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-muted-light);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+  }
+
+  .timeline-step:hover .step-content {
+    border-color: var(--color-accent);
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .timeline-step:hover .step-badge {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    transform: scale(1.1);
+  }
+
+  .step-duration {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .step-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .step-deliverable {
+    border-left: 2px solid var(--color-primary);
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    background-color: var(--color-white);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  @keyframes drawLineAnimation {
+    from { stroke-dashoffset: 600; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry)) {
+      .draw-line {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        animation: drawLineAnimation linear both;
+        animation-timeline: --timeline-draw-tl;
+        animation-range: entry 10% exit 90%;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeline-container {
+      padding-left: 3rem;
+    }
+
+    .timeline-line-wrapper {
+      left: 10px;
+    }
+
+    .step-badge {
+      left: -3rem;
+      width: 32px;
+      height: 32px;
+      font-size: 0.65rem;
+    }
+
+    .step-content {
+      padding: 1.5rem;
+    }
+  }
+</style>

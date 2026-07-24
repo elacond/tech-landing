@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Elacond Tech - Consultoría de software y desarrollo de plataformas a medida" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Premium Custom Cursor -->
+		<div class="custom-cursor" id="js-cursor"></div>
+		
+		<slot />
+
+		<script>
+			/* ==========================================================================
+			   CUSTOM CURSOR LAG EFFECT
+			   ========================================================================== */
+			const cursor = document.getElementById('js-cursor');
+			let mouseX = 0, mouseY = 0;
+			let posX = 0, posY = 0;
+
+			if (cursor && window.matchMedia("(pointer: fine)").matches) {
+				document.addEventListener('mousemove', (e) => {
+					mouseX = e.clientX;
+					mouseY = e.clientY;
+				});
+
+				const updateCursor = () => {
+					// Smooth delay calculation (inertia)
+					posX += (mouseX - posX) * 0.15;
+					posY += (mouseY - posY) * 0.15;
+
+					cursor.style.transform = `translate3d(${posX - 10}px, ${posY - 10}px, 0)`;
+					requestAnimationFrame(updateCursor);
+				};
+				updateCursor();
+
+				// Hover states for links and interactive elements
+				const hoverElements = document.querySelectorAll('a, button, input, select, textarea, [role="button"]');
+				hoverElements.forEach(el => {
+					el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+					el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+				});
+			} else if (cursor) {
+				// Hide on touch screen devices
+				cursor.style.display = 'none';
+			}
+		</script>
+
+		<style>
+			/* ==========================================================================
+			   CUSTOM CURSOR STYLING
+			   ========================================================================== */
+			.custom-cursor {
+				width: 20px;
+				height: 20px;
+				border: 1px solid var(--color-accent);
+				border-radius: 50%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				pointer-events: none;
+				z-index: 10000;
+				transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+				will-change: transform;
+			}
+
+			.custom-cursor.hover {
+				width: 44px;
+				height: 44px;
+				background-color: rgba(214, 104, 83, 0.08); /* Accent transparent */
+				border-color: var(--color-primary);
+			}
+
+			/* Disable custom cursor if reduced motion is requested */
+			@media (prefers-reduced-motion: reduce) {
+				.custom-cursor {
+					display: none !important;
+				}
+			}
+		</style>
+	</body>
+</html>

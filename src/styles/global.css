@@ -1,0 +1,239 @@
+/* ==========================================================================
+   DESIGN SYSTEM - VANGUARDIA TERRENAL (ELACOND TECH)
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #017dd4;      /* Azul Núcleo - Brand Anchor */
+  --color-primary-light: #48a7f2;
+  --color-primary-dark: #005fa3;
+  --color-bg: #FAF6F0;           /* Lino Natural - Warm off-white */
+  --color-text: #2C221E;         /* Tierra Quemada - Dark brown text */
+  --color-text-muted: #5e4e47;
+  --color-accent: #D66853;       /* Terracota Digital - Earthy Red */
+  --color-accent-light: #e08b7a;
+  --color-muted: #CAD2C5;        /* Salvia Silvestre - Muted Sage */
+  --color-muted-light: #e5e9e2;
+  --color-white: #ffffff;
+  
+  /* Fonts */
+  --font-heading: 'Lora', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing (Fluid using clamp) */
+  --space-xs: clamp(0.75rem, 1vw, 1rem);
+  --space-sm: clamp(1rem, 2vw, 1.5rem);
+  --space-md: clamp(1.5rem, 3vw, 2.5rem);
+  --space-lg: clamp(2.5rem, 5vw, 4rem);
+  --space-xl: clamp(4rem, 8vw, 7rem);
+  
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+  --border-radius: 12px;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --box-shadow: 0 4px 30px rgba(44, 34, 30, 0.03);
+  --box-shadow-hover: 0 20px 40px rgba(44, 34, 30, 0.08);
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  /* Make named timelines available globally */
+  timeline-scope: --hero-timeline, --diff-timeline, --timeline-draw-tl;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.625;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Premium Noise Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border: 2px solid var(--color-bg);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Container */
+.container {
+  width: 92%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(100%);
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(1, 125, 212, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(1, 125, 212, 0.25);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-muted);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text);
+  background-color: rgba(44, 34, 30, 0.02);
+  transform: translateY(-2px);
+}
+
+/* Section Header */
+.section-header {
+  max-width: 800px;
+  margin: 0 auto var(--space-lg) auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SCROLL-DRIVEN MOTION ANIMATION KEYFRAMES
+   ========================================================================== */
+
+@keyframes text-reveal {
+  from {
+    opacity: 0.15;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Standard Progressive Enhancement for Scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    /* Reveals elements as they scroll into view port */
+    .scroll-reveal {
+      animation: fade-in-scale auto linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}

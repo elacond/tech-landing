@@ -1,0 +1,113 @@
+---
+---
+<div class="flow-divider" aria-hidden="true">
+  <svg
+    class="divider-svg"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- Dark soil background -->
+    <rect width="1440" height="120" fill="#2C221E"/>
+
+    <!-- Ambient glow pools -->
+    <ellipse cx="380"  cy="60" rx="220" ry="42" fill="rgba(1,125,212,0.10)"/>
+    <ellipse cx="900"  cy="60" rx="260" ry="38" fill="rgba(1,125,212,0.07)"/>
+    <ellipse cx="1260" cy="60" rx="160" ry="35" fill="rgba(72,167,242,0.06)"/>
+
+    <!-- Stream paths (horizontal, left → right) -->
+    <!-- Main stream -->
+    <path class="ds ds-main"
+      d="M-120,82 C180,32 480,98 720,44 S1080,88 1560,38"/>
+    <!-- Second -->
+    <path class="ds ds-2"
+      d="M-120,62 C140,18 420,76 660,30 S1020,72 1560,22"/>
+    <!-- Third -->
+    <path class="ds ds-3"
+      d="M-120,96 C260,52 560,104 800,56 S1120,96 1560,54"/>
+    <!-- Bright accent -->
+    <path class="ds ds-accent"
+      d="M-120,72 C200,24 500,88 740,38 S1100,80 1560,30"/>
+
+    <!-- Particles -->
+    <circle class="dp dp-1" cx="280"  cy="54" r="3"   fill="#48a7f2"/>
+    <circle class="dp dp-2" cx="640"  cy="36" r="2.5" fill="#017dd4"/>
+    <circle class="dp dp-3" cx="960"  cy="62" r="3"   fill="#48a7f2"/>
+    <circle class="dp dp-4" cx="1240" cy="42" r="2.5" fill="#017dd4"/>
+  </svg>
+</div>
+
+<style>
+  .flow-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    display: block;
+  }
+
+  .divider-svg {
+    width: 100%;
+    height: 120px;
+    display: block;
+  }
+
+  /* Stream paths */
+  .ds {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2300;
+    stroke-dashoffset: 2300;
+  }
+
+  .ds-main {
+    stroke: #017dd4;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 8px rgba(1, 125, 212, 0.8));
+  }
+  .ds-2 {
+    stroke: #017dd4;
+    stroke-width: 1.5;
+    opacity: 0.45;
+  }
+  .ds-3 {
+    stroke: #48a7f2;
+    stroke-width: 1;
+    opacity: 0.3;
+  }
+  .ds-accent {
+    stroke: #48a7f2;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 12px rgba(72, 167, 242, 0.9));
+  }
+
+  @keyframes divStreamDraw {
+    0%   { stroke-dashoffset: 2300; opacity: 0; }
+    5%   { opacity: 1; }
+    88%  { opacity: 0.8; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  /* Floating particles */
+  .dp {
+    opacity: 0;
+    filter: drop-shadow(0 0 5px #48a7f2);
+  }
+
+  @keyframes dpPulse {
+    0%, 100% { opacity: 0; }
+    50%       { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ds-main   { animation: divStreamDraw 4.5s ease-in-out 0s    infinite; }
+    .ds-2      { animation: divStreamDraw 4.5s ease-in-out 0.7s  infinite; }
+    .ds-3      { animation: divStreamDraw 4.5s ease-in-out 1.3s  infinite; }
+    .ds-accent { animation: divStreamDraw 4.5s ease-in-out 0.35s infinite; }
+
+    .dp-1 { animation: dpPulse 2s ease-in-out 1.2s infinite; }
+    .dp-2 { animation: dpPulse 2s ease-in-out 1.9s infinite; }
+    .dp-3 { animation: dpPulse 2s ease-in-out 2.6s infinite; }
+    .dp-4 { animation: dpPulse 2s ease-in-out 3.3s infinite; }
+  }
+</style>
